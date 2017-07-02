@@ -35,12 +35,4 @@ public class LoginPage {
         buttonLogin.click();
     }
 
-
-//    WebElement loginField = driver.findElement(By.id("login"));
-//    WebElement passwordField = driver.findElement(By.id("password"));
-//    WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
-//        loginField.sendKeys("umachiha");
-//        passwordField.sendKeys("idkfa666");
-//        loginButton.click();
-
 }

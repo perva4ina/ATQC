@@ -35,25 +35,13 @@ public class FirstTest {
         loginPage.clickLogin();
         String mailUser = mailBoxPage.getUserMail();
         Assert.assertEquals(mailUser, "umachiha@ukr.net");
-//
-//        WebElement loginField = driver.findElement(By.id("login"));
-//        WebElement passwordField = driver.findElement(By.id("password"));
-//        WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
-//        loginField.sendKeys("umachiha");
-//        passwordField.sendKeys("idkfa666");
-//        loginButton.click();
-//
-//        WebElement buttonUser = driver.findElement(By.className("login-button__user"));
-//        Assert.assertEquals("umachiha@ukr.net", buttonUser.getText());
     }
 
     @AfterClass
     public static void tearDown() {
-        WebElement buttonUser = driver.findElement(By.className("login-button__user"));
-        buttonUser.click();
-        WebElement buttonLogout = driver.findElement(By.xpath("//a[@id='login__logout']/b"));
-        buttonLogout.click();
-//        driver.quit();
+        mailBoxPage.clickUser();
+        mailBoxPage.clickLogout();
+        driver.quit();
     }
 
 }
