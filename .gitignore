@@ -1,2 +1,5 @@
-target/*
-.idea/workspace.xml
+*/target/*
+*/.idea/*
+workspace.xml
+misc.xml
+backup/*

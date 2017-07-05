@@ -2,9 +2,7 @@ package com.gmail.perva4ina.tests;
 
 import com.gmail.perva4ina.pages.LoginPage;
 import com.gmail.perva4ina.pages.MailBoxPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
