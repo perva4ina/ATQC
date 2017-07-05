@@ -26,6 +26,7 @@ public class FirstTest {
         driver.get("https://mail.ukr.net/desktop/login?lang=ru");
     }
 
+
     @Test
     public void userLogin() {
         loginPage.setLogin("umachiha");
@@ -41,5 +42,4 @@ public class FirstTest {
         mailBoxPage.clickLogout();
         driver.quit();
     }
-
 }
