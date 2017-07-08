@@ -10,10 +10,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class SelectTest {
     private static WebDriver driver;
+    private Select select;
+    private String selectText = "Textarea";
 
     @BeforeClass
     public static void setup() {
@@ -24,37 +27,59 @@ public class SelectTest {
     }
 
     public Select getSelect(WebElement element) {
-        return new Select(element);
+        select = new Select(element);
+        return select;
     }
 
     @Test
     public void selectText() {
-
         WebElement listText = driver.findElement(By.xpath("//p[contains(.,\"Тег select предназначен для создания выпадающего списка.\")]/following-sibling::table[1]//select"));
-        Select select = getSelect(listText);
-        select.selectByVisibleText("Textarea");
-
+        getSelect(listText);
+        select.selectByVisibleText(selectText);
+        WebElement selectedOption = select.getFirstSelectedOption();
+        Assert.assertEquals(selectText, selectedOption.getText());
+    }
+    
+    @Test
+    public void  selectValue() {
         WebElement listValue = driver.findElement(By.xpath("//p[contains(.,\"Тег select предназначен для создания выпадающего списка.\")]/following-sibling::table[3]//select"));
-        select = getSelect(listValue);
+        getSelect(listValue);
         select.selectByValue("2");
-
+        WebElement selectedOption = select.getFirstSelectedOption();
+        Assert.assertEquals(selectText, selectedOption.getText());
+    }
+    
+    @Test
+    public void selectIndex() {
         WebElement listIndex = driver.findElement(By.xpath("//p[contains(.,\"Тег select предназначен для создания выпадающего списка.\")]/following-sibling::table[6]//select"));
-        select = getSelect(listIndex);
+        getSelect(listIndex);
         select.selectByIndex(2);
-
-
-//        loginPage.setLogin("umachiha");
-//        loginPage.setPassword("idkfa666");
-//        loginPage.clickLogin();
-//        String mailUser = mailBoxPage.getUserMail();
-//        Assert.assertEquals(mailUser, "umachiha@ukr.net");
+        List<WebElement> selectedOption = select.getAllSelectedOptions();
+        Assert.assertEquals(selectText, selectedOption.get(0).getText());
+    }
+    
+    @Test
+    public void isMultipleTest() {
+        WebElement listIndex = driver.findElement(By.xpath("//p[contains(.,\"Тег select предназначен для создания выпадающего списка.\")]/following-sibling::table[6]//select"));
+        getSelect(listIndex);
+        boolean multiple = select.isMultiple();
+        Assert.assertFalse(multiple);
     }
 
-//    @AfterClass
-//    public static void tearDown() {
-//        mailBoxPage.clickUser();
-//        mailBoxPage.clickLogout();
-//        driver.quit();
-//    }
+    @Test
+    public void optionsTest() {
+        WebElement listText = driver.findElement(By.xpath("//p[contains(.,\"Тег select предназначен для создания выпадающего списка.\")]/following-sibling::table[1]//select"));
+        getSelect(listText);
+        List<WebElement> options = select.getOptions();
+        int i = 1;
+        for(WebElement option : options){
+            System.out.println(i + " oпция списка: " + option.getText());
+            i++;
+        }
+    }
 
+    @AfterClass
+    public static void tearDown() {
+        driver.quit();
+    }
 }
