@@ -11,6 +11,18 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.gmavenplus</groupId>
+            <artifactId>gmavenplus-plugin</artifactId>
+            <version>1.5</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>2.53.1</version>
@@ -60,35 +72,77 @@
             <scope>test</scope>
         </dependency>
 
+        <!--<dependency>-->
+        <!--<groupId>com.microsoft.sqlserver</groupId>-->
+        <!--<artifactId>sqljdbc4</artifactId>-->
+        <!--<version>4.0</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <build>
         <!--<outputDirectory>target2</outputDirectory>-->
         <!--<finalName>ROOT</finalName>-->
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/test/java</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-pmd-plugin</artifactId>-->
-                <!--<version>2.4</version>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
+        <!--<sourceDirectory>src/main/java</sourceDirectory>-->
+        <!--<testSourceDirectory>src/test/java</testSourceDirectory>-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/java</directory>-->
+                <!--<excludes>-->
+                    <!--<exclude>**/*.java</exclude>-->
+                <!--</excludes>-->
+            <!--</resource>-->
+            <!--<resource>-->
+                <!--<directory>src/test/java</directory>-->
+                <!--<excludes>-->
+                    <!--<exclude>**/*.java</exclude>-->
+                <!--</excludes>-->
+            <!--</resource>-->
+        <!--</resources>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.5</version>
+                <configuration>
+                    <sources>
+                        <source>
+                            <directory>src/main/java</directory>
+                            <includes>
+                                <include>**/*.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/*.xml</exclude>
+                            </excludes>
+                        </source>
+                    </sources>
+                    <testSources>
+                        <testSource>
+                            <directory>src/test/java</directory>
+                            <includes>
+                                <include>**/*.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/*.iml</exclude>
+                                <exclude>**/*.xml</exclude>
+                                <exclude>**/*.xlsx</exclude>
+                            </excludes>
+                        </testSource>
+                    </testSources>
+                    <invokeDynamic>true</invokeDynamic>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
-
 
 </project>

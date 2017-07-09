@@ -2,7 +2,7 @@ package com.gmail.perva4ina.BE.OnlineShop;
 
 import java.math.BigDecimal;
 
-public class Product {
+public class Product extends BusinessEntity {
 
     private int productID;
     private String naming;

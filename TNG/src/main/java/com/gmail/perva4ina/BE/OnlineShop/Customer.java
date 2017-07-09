@@ -2,7 +2,6 @@ package com.gmail.perva4ina.BE.OnlineShop;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Customer {
 
