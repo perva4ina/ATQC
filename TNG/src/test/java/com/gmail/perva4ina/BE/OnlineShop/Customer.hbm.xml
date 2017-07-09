@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="Customer" table="Customer">
+        <meta attribute="class-description">
+            This class contains the customer detail.
+        </meta>
+        <id name="customerID" type="int" column="CustomerID">
+            <generator class="native"/>
+        </id>
+        <property name="firstName" column="FirstName" not-null="true" type="string"/>
+        <property name="lastName" column="LastName" not-null="true" type="string"/>
+        <property name="email" column="Email" not-null="true" type="string"/>
+        <property name="country" column="Country" type="string"/>
+        <property name="oblast" column="Oblast" type="string"/>
+        <property name="city" column="City" type="string"/>
+        <property name="password" column="Pass" type="int"/>
+
+        <set name="orders" table="Orders" lazy="true">
+            <key column="customerID"/>
+            <one-to-many class="com.gmail.perva4ina.BE.OnlineShop.Orders"/>
+        </set>
+    </class>
+</hibernate-mapping>

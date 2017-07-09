@@ -7,7 +7,7 @@ public class Orders {
 
     private int orderID;
     private int customerID;
-    private Set<Product> products = new HashSet<>();
+    private Set<Product> products = new HashSet<Product>();
 
     public int getOrderID() {
         return orderID;

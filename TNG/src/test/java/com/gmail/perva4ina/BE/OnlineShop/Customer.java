@@ -14,7 +14,7 @@ public class Customer {
     private String oblast;
     private String city;
     private String password;
-    private Set<Orders> orders = new HashSet<>();
+    private Set<Orders> orders = new HashSet<Orders>();
 
     public int getCustomerID() {
         return customerID;

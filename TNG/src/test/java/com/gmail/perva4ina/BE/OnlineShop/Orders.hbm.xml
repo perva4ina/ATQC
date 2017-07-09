@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="Orders" table="Orders">
+        <id name="orderID" type="int" column="OrderID">
+            <generator class="native"/>
+        </id>
+        <property name="customerID" column="CustomerID" not-null="true" type="int"/>
+
+        <set name="products" table="OrderProduct" lazy="true">
+            <key column="orderID"/>
+            <many-to-many column="ProductID" class="com.gmail.perva4ina.BE.OnlineShop.Product"/>
+        </set>
+    </class>
+</hibernate-mapping>
+
