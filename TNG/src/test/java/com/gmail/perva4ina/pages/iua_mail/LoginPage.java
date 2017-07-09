@@ -1,4 +1,4 @@
-package com.gmail.perva4ina.pages;
+package com.gmail.perva4ina.pages.iua_mail;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
