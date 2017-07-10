@@ -11,20 +11,15 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class FirstTest {
-    private static WebDriver driver;
+public class FirstTest extends BaseWebTest {
     private static LoginPage loginPage;
     private static MailBoxPage mailBoxPage;
 
     @BeforeClass
     public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:/GIT/TNG/3rdParty/chromedriver.exe");
-        driver = new ChromeDriver();
+        initTest("https://mail.ukr.net/desktop/login?lang=ru");
         loginPage = new LoginPage(driver);
         mailBoxPage = new MailBoxPage(driver);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        driver.get("https://mail.ukr.net/desktop/login?lang=ru");
     }
 
     @Test
@@ -40,6 +35,6 @@ public class FirstTest {
     public static void tearDown() {
         mailBoxPage.clickUser();
         mailBoxPage.clickLogout();
-        driver.quit();
+        finishTest();
     }
 }
