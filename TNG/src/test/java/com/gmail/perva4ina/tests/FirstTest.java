@@ -18,6 +18,7 @@ public class FirstTest {
 
     @BeforeClass
     public static void setup() {
+        System.setProperty("webdriver.chrome.driver", "C:/GIT/TNG/3rdParty/chromedriver.exe");
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
         mailBoxPage = new MailBoxPage(driver);
@@ -28,11 +29,11 @@ public class FirstTest {
 
     @Test
     public void userLogin() {
-        loginPage.setLogin("umachiha");
-        loginPage.setPassword("idkfa666");
+        loginPage.setLogin("umachiha1");
+        loginPage.setPassword("test1234!");
         loginPage.clickLogin();
         String mailUser = mailBoxPage.getUserMail();
-        Assert.assertEquals(mailUser, "umachiha@ukr.net");
+        Assert.assertEquals(mailUser, "umachiha1@ukr.net");
     }
 
     @AfterClass

@@ -8,6 +8,12 @@
     <artifactId>TNG</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <!--<basedir>C:\GIT\TNG</basedir>-->
+        <!--<webdriver.chrome>${basedir}/3rdParty/chromedriver.exe</webdriver.chrome>-->
+        <webdriver.chrome>C:\GIT\TNG\3rdParty\chromedriver.exe</webdriver.chrome>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -20,6 +26,12 @@
             <groupId>org.codehaus.gmavenplus</groupId>
             <artifactId>gmavenplus-plugin</artifactId>
             <version>1.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>2.19.1</version>
         </dependency>
 
         <dependency>
@@ -86,20 +98,23 @@
         <!--<finalName>ROOT</finalName>-->
         <!--<sourceDirectory>src/main/java</sourceDirectory>-->
         <!--<testSourceDirectory>src/test/java</testSourceDirectory>-->
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>src/main/java</directory>-->
-                <!--<excludes>-->
-                    <!--<exclude>**/*.java</exclude>-->
-                <!--</excludes>-->
-            <!--</resource>-->
-            <!--<resource>-->
-                <!--<directory>src/test/java</directory>-->
-                <!--<excludes>-->
-                    <!--<exclude>**/*.java</exclude>-->
-                <!--</excludes>-->
-            <!--</resource>-->
-        <!--</resources>-->
+        <resources>
+            <resource>
+                <directory>3rdParty</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/test/java</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -142,6 +157,81 @@
                     <invokeDynamic>true</invokeDynamic>
                 </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-failsafe-plugin</artifactId>-->
+                <!--<version>2.19.1</version>-->
+                <!--<configuration>-->
+                    <!--<systemPropertyVariables>-->
+                        <!--<webdriver.chrome.driver>${webdriver.chrome}</webdriver.chrome.driver>-->
+                    <!--</systemPropertyVariables>-->
+                    <!--<additionalClasspathElements>-->
+                        <!--&lt;!&ndash;<additionalClasspathElement>-->
+                            <!--${basedir}/../../tools/at-framework/AF/3rdParty/sqljdbc4.jar-->
+                        <!--</additionalClasspathElement>&ndash;&gt;-->
+
+                    <!--</additionalClasspathElements>-->
+                    <!--&lt;!&ndash;<properties>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<property>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<name>configfailurepolicy</name>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<value>continue</value>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</property>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<property>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<name>haltonfailure</name>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<value>false</value>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</property>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</properties>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<testFailureIgnore>true</testFailureIgnore>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<argLine>-Xmx3584m -Djava.util.logging.config.file=${project.build.directory}/logging.properties</argLine>&ndash;&gt;-->
+                <!--</configuration>-->
+                <!--&lt;!&ndash;<executions>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<execution>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<id>failsafe-integration-tests</id>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<phase>integration-test</phase>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<goals>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<goal>integration-test</goal>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<goal>verify</goal>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</goals>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;<properties>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<property>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<name>usedefaultlisteners</name>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<value>false</value>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</property>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<property>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<name>listener</name>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<value>com.hsps.af.testingcore.common.HSPSReporter</value>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</property>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</properties>&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;<systemPropertyVariables>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<practiceID>${practiceID}</practiceID>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<workingDir>${basedir}</workingDir>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</systemPropertyVariables>&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash; <parallel>suitesAndClasses</parallel>&ndash;&gt;-->
+                             <!--&lt;!&ndash;<useUnlimitedThreads>true</useUnlimitedThreads>&ndash;&gt;-->
+                             <!--&lt;!&ndash;<forkMode>perthread</forkMode>&ndash;&gt;-->
+                             <!--&lt;!&ndash;<threadCount>3</threadCount>&ndash;&gt;-->
+                             <!--&lt;!&ndash;<suiteXmlFiles>&ndash;&gt;-->
+                                 <!--&lt;!&ndash;<suiteXmlFile>testng.xml</suiteXmlFile>&ndash;&gt;-->
+                                 <!--&lt;!&ndash;<suiteXmlFile>testng1.xml</suiteXmlFile>&ndash;&gt;-->
+                                 <!--&lt;!&ndash;<suiteXmlFile>testng2.xml</suiteXmlFile>&ndash;&gt;-->
+                             <!--&lt;!&ndash;</suiteXmlFiles>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<parallel>suites</parallel>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<threadCountSuites>3</threadCountSuites>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<threadCount>3</threadCount>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<forkCount>3</forkCount>&ndash;&gt;-->
+                             <!--&lt;!&ndash;<reuseForks>true</reuseForks>&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;<suiteXmlFiles>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</suiteXmlFiles>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<test>${individualTests}</test>&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;  <includes>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<include>{individualTests}</include>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</includes>&ndash;&gt;&ndash;&gt;-->
+                        <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</execution>&ndash;&gt;-->
+                <!--&lt;!&ndash;</executions>&ndash;&gt;-->
+            <!--</plugin>-->
         </plugins>
     </build>
 
