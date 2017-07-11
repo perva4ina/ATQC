@@ -13,17 +13,14 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class SelectTest {
-    private static WebDriver driver;
+public class SelectTest extends BaseWebTest{
+//    private static WebDriver driver;
     private Select select;
     private String selectText = "Textarea";
 
     @BeforeClass
-    public static void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://goo.gl/wh2MP8");
+    public void setup() {
+        initTest("https://goo.gl/wh2MP8");
     }
 
     public Select getSelect(WebElement element) {
@@ -79,7 +76,7 @@ public class SelectTest {
     }
 
     @AfterClass
-    public static void tearDown() {
+    public void tearDown() {
         driver.quit();
     }
 }

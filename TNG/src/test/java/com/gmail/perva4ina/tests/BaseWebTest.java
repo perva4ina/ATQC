@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BaseWebTest {
 
-    public static WebDriver driver;
+    public WebDriver driver;
 
-    public static void initTest(String url) {
+    public void initTest(String url) {
         System.setProperty("webdriver.chrome.driver", "C:/GIT/TNG/3rdParty/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -18,7 +18,7 @@ public abstract class BaseWebTest {
         driver.get(url);
     }
 
-    public static void finishTest() {
+    public void finishTest() {
         driver.quit();
     }
 

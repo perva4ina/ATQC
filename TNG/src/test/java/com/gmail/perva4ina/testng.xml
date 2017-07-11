@@ -4,8 +4,8 @@
 <suite name="Suite1" thread-count="2" parallel="true">
     <test name="Selenium" >
         <classes>
-            <!--<class name="com.gmail.perva4ina.tests.SelectTest"/>-->
             <class name="com.gmail.perva4ina.tests.FirstTest"/>
+            <class name="com.gmail.perva4ina.tests.SelectTest"/>
         </classes>
     </test>
 

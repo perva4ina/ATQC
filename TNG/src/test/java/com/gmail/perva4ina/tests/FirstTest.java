@@ -16,7 +16,7 @@ public class FirstTest extends BaseWebTest {
     private static MailBoxPage mailBoxPage;
 
     @BeforeClass
-    public static void setup() {
+    public void setup() {
         initTest("https://mail.ukr.net/desktop/login?lang=ru");
         loginPage = new LoginPage(driver);
         mailBoxPage = new MailBoxPage(driver);
@@ -32,7 +32,7 @@ public class FirstTest extends BaseWebTest {
     }
 
     @AfterClass
-    public static void tearDown() {
+    public void tearDown() {
         mailBoxPage.clickUser();
         mailBoxPage.clickLogout();
         finishTest();
