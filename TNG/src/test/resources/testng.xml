@@ -2,12 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" thread-count="2" parallel="true">
-    <test name="Selenium" >
+    <!--<test name="Selenium" >-->
+        <!--<classes>-->
+            <!--<class name="com.gmail.perva4ina.tests.FirstTest"/>-->
+            <!--<class name="com.gmail.perva4ina.tests.SelectTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="Cucumber" >
         <classes>
-            <class name="com.gmail.perva4ina.tests.FirstTest"/>
-            <class name="com.gmail.perva4ina.tests.SelectTest"/>
+            <class name="com.gmail.perva4ina.cucumber.steps.CucumberTestRunner"/>
         </classes>
     </test>
+
 
     <!--<test name="unit" thread-count="2" parallel="true">-->
         <!--<packages>-->

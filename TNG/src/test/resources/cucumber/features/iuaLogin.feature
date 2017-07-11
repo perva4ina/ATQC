@@ -5,10 +5,10 @@ Feature: Login Action
 
     Scenario: Successful Login with Valid Credentials
         Given user is on ukr.net Mail Login Page
-        When he enter username "umachiha@gmail.com"
+        When he enter username "umachiha1"
         And he enter password "test1234!"
         And click Login button
-        Then MailBoxPage displayed with "umachiha@gmail.com" username
+        Then MailBoxPage displayed with "umachiha@ukr.net" username
 
     Scenario: Successful LogOut
         When user open User Menu
