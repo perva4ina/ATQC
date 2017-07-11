@@ -15,6 +15,11 @@ public class ukrnetMailSteps extends BaseWebTest{
     private LoginPage loginPage;
     private MailBoxPage mailBoxPage;
 
+//    {
+//        loginPage = new LoginPage(driver);
+//        mailBoxPage = new MailBoxPage(driver);
+//    }
+
     @Before
     public void setup() {
         setupDriver();

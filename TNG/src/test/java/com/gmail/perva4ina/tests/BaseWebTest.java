@@ -2,8 +2,10 @@ package com.gmail.perva4ina.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Parameters;
 
 import java.util.concurrent.TimeUnit;
+
 
 public abstract class BaseWebTest {
 
@@ -22,6 +24,7 @@ public abstract class BaseWebTest {
         driver.get(url);
     }
 
+//    @Parameters("debugMode")
     public void finishTest() {
         driver.quit();
     }

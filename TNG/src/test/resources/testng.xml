@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" thread-count="2" parallel="true">
+    <parameter name="debugMode" value="true"/>
     <!--<test name="Selenium" >-->
         <!--<classes>-->
             <!--<class name="com.gmail.perva4ina.tests.FirstTest"/>-->
