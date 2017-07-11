@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeClass;
 public class RestTest extends BaseWebTest {
 
     @BeforeClass
-    public static void setup() {
+    public void setup() {
         initTest("");
     }
 

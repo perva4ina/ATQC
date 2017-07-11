@@ -7,16 +7,16 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BaseWebTest {
 
-    public static WebDriver driver;
+    public WebDriver driver;
 
-    public static void initTest(String url) {
+    public void initTest(String url) {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(url);
     }
 
-    public static void tearDown() {
+    public void tearDown() {
         driver.quit();
     }
 
