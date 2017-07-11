@@ -10,9 +10,15 @@
         <!--</classes>-->
     <!--</test>-->
 
-    <test name="Cucumber" >
+    <!--<test name="Cucumber" >-->
+        <!--<classes>-->
+            <!--<class name="com.gmail.perva4ina.cucumber.steps.CucumberTestRunner"/>-->
+        <!--</classes>-->
+    <!--</test>    -->
+
+    <test name="Sikuli" >
         <classes>
-            <class name="com.gmail.perva4ina.cucumber.steps.CucumberTestRunner"/>
+            <class name="com.gmail.perva4ina.tests.SikuliTest"/>
         </classes>
     </test>
 
