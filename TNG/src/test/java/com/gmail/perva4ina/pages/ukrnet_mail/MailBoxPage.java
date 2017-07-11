@@ -1,4 +1,4 @@
-package com.gmail.perva4ina.pages.iua_mail;
+package com.gmail.perva4ina.pages.ukrnet_mail;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +23,7 @@ public class MailBoxPage {
     @FindBy(className = "login-button__user")
     private WebElement buttonLogout;
 
-    public void clickUser() {
+    public void openUserMenu() {
         buttonUser.click();
     }
 

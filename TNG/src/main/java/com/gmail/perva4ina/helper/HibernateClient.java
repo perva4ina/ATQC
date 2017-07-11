@@ -7,7 +7,7 @@ public class HibernateClient {
     private static final SessionFactory sessionFactory;
     static {
         try {
-            sessionFactory = new Configuration().configure("com/gmail/perva4ina/helper/hibernate.cfg.xml").buildSessionFactory();
+            sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         }
         catch (Throwable e) {
             System.err.println("Initial SessionFactory creation failed." + e);

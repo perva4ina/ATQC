@@ -1,4 +1,4 @@
-package com.gmail.perva4ina.pages.iua_mail;
+package com.gmail.perva4ina.pages.ukrnet_mail;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +22,10 @@ public class LoginPage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement buttonLogin;
+
+    public WebElement getButtonLogin() {
+        return this.buttonLogin;
+    }
 
     public void setLogin(String login) {
         fieldLogin.sendKeys(login);

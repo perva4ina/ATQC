@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/3rdParty" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/target2" />
     </content>
@@ -146,5 +147,11 @@
     <orderEntry type="library" scope="TEST" name="Maven: com.nimbusds:nimbus-jose-jwt:3.1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.bouncycastle:bcprov-jdk15on:1.51" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-java:1.2.5" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-core:1.2.5" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-html:0.2.3" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-jvm-deps:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:gherkin:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-testng:1.2.5" level="project" />
   </component>
 </module>

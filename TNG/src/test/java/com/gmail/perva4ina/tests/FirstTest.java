@@ -1,15 +1,11 @@
 package com.gmail.perva4ina.tests;
 
-import com.gmail.perva4ina.pages.iua_mail.LoginPage;
-import com.gmail.perva4ina.pages.iua_mail.MailBoxPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.gmail.perva4ina.pages.ukrnet_mail.LoginPage;
+import com.gmail.perva4ina.pages.ukrnet_mail.MailBoxPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 public class FirstTest extends BaseWebTest {
     private static LoginPage loginPage;
@@ -17,7 +13,7 @@ public class FirstTest extends BaseWebTest {
 
     @BeforeClass
     public void setup() {
-        initTest("https://mail.ukr.net/desktop/login?lang=ru");
+        setupDriver("https://mail.ukr.net/desktop/login?lang=ru");
         loginPage = new LoginPage(driver);
         mailBoxPage = new MailBoxPage(driver);
     }
@@ -33,7 +29,7 @@ public class FirstTest extends BaseWebTest {
 
     @AfterClass
     public void tearDown() {
-        mailBoxPage.clickUser();
+        mailBoxPage.openUserMenu();
         mailBoxPage.clickLogout();
         finishTest();
     }
